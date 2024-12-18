@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+</head>
+<body>
+
+    <h1>CNPJ</h1>
+    <form action="{{ url_for('datecnpj')}}" method="POST">
+        <input type="text" name="cnpj_post" placeholder="morea">
+        <br>
+        <button type="submit">Enviar</button>
+    </form>
+    <br><br><br>
+    <h1>CEP</h1>
+    <form action="{{ url_for('datecep')}}" method="POST">
+        <input type="text" name="cep_post" placeholder="morea">
+        <br>
+        <button type="submit">Enviar</button>
+    </form>
+    <br><br><br>
+    <h1>TEMPO</h1>
+    <form action="{{ url_for('datetime')}}" method="POST">
+        <input type="text" name="time_post" placeholder="morea">
+        <br>
+        <button type="submit">Enviar</button>
+    </form>
+    <br><br><br><br>
+    <button><a href="{{ url_for('edit')}}">SIGAA - IFSAUTO</a></button>
+    
+
+</body>
+</html>
