@@ -19,8 +19,8 @@ def Tempo():
 
 def SistemaIFS(username, password):
     # Pegar nome completo, semestre e campus.
+    ifs = webdriver.Chrome()
     try:
-        ifs = webdriver.Chrome()
         ifs.get('https://sigaa.ifs.edu.br/sigaa/verTelaLogin.do')
         ifs.find_element(By.NAME, 'user.login').send_keys(username)
         ifs.find_element(By.NAME, 'user.senha').send_keys(password)
@@ -34,11 +34,9 @@ def SistemaIFS(username, password):
         unidade = ifs.find_element(By.CLASS_NAME, 'unidade').text
         matricula = ifs.find_element(By.XPATH, '//*[@id="agenda-docente"]/table/tbody/tr[1]/td[2]').text
         sil = f'O aluno {usuario} está matriculado no {unidade} com a matricula {matricula}, está no periodo {periodo}'
-        dados = ifs.find_elements(By.XPATH, '/html/body/div[2]/div[2]/div[1]/div[2]/div[2]/table/tbody/tr[2]/td[2]').text
-        
-        #sil = f'O aluno {usuario} está matriculado no {unidade} com a matricula {matricula}, está no periodo {periodo}, o curso é {curso}, e entrou no semestre {entrada}, STATUS: {status}'
-        print(sil)
         ifs.find_element(By.CLASS_NAME, 'sair-sistema').click()
+        #sil = f'O aluno {usuario} está matriculado no {unidade} com a matricula {matricula}, está no periodo {periodo}, o curso é {curso}, e entrou no semestre {entrada}, STATUS: {status}'
+
     except:
         print("erro")
     finally:
