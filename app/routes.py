@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from app import app
 from .defs import cnpj_cnpj, cep_cep
-from .outro import SistemaIFS
 
 @app.route('/')
 def index():
@@ -29,4 +28,6 @@ def edit():
 
 @app.route('/IFSAUTO', methods=['POST'])
 def automac():
-    return render_template('new.html', ifsmais=SistemaIFS(request.form['username'], request.form['password']) )
+    un = request.form['username'] 
+    pw = request.form['password']
+    return render_template('new.html')
